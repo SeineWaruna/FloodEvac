@@ -1,0 +1,49 @@
+{
+  "collections": {
+    "users": {
+      "documents": {
+        "userId": {
+          "fields": {
+            "email": "string",
+            "displayName": "string",
+            "homeLocation": "latlng",
+            "notificationSettings": {
+              "floodAlerts": "boolean",
+              "heavyRain": "boolean"
+            },
+            "createdAt": "timestamp"
+          }
+        }
+      }
+    },
+    "reports": {
+      "documents": {
+        "reportId": {
+          "fields": {
+            "userId": "string",
+            "location": "latlng",
+            "waterLevel": "number",
+            "description": "string",
+            "timestamp": "timestamp",
+            "imageUrl": "string"
+          }
+        }
+      }
+    },
+    "alerts": {
+      "documents": {
+        "alertId": {
+          "fields": {
+            "type": "string",
+            "severity": "string",
+            "title": "string",
+            "description": "string",
+            "region": "string",
+            "timestamp": "timestamp",
+            "predictedBy": "string"
+          }
+        }
+      }
+    }
+  }
+}

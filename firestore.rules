@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow users to read and write their own profile
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Allow reading all reports, but only authenticated users can create them
+    match /reports/{reportId} {
+      allow read: if true;
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth != null && request.auth.uid == resource.data.userId;
+    }
+    
+    // System-wide alerts are read-only for users
+    match /alerts/{alertId} {
+      allow read: if true;
+      allow write: if false; // Only system/admin (manual intervention)
+    }
+  }
+}

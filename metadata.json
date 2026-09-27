@@ -1,0 +1,8 @@
+{
+  "name": "FloodEvac",
+  "description": "AI-powered flood evacuation and climate preparedness system utilizing predictive analysis and real-time mapping for community safety.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
